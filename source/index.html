@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:;base64,=">
+  <link href="./bootstrap/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link  href="css/style.min.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body class="page">
+  <header class="page__header m-3">
+    <div class="container">
+      <nav class="text-center">
+        <a href="#" class="text-decoration-none h2">Шапка</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page__main">
+    <h1 class="visually-hidden">Таблица данных</h1>
+    <div class="container">
+      <section class="table">
+        <div class="table__menu-container p-4">
+          <h2 class="table__menu-title h3">Меню</h2>
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="table__item">
+              <label>
+                <input class="table__field visually-hidden" type="radio" name="table-item" value="one">
+                <span class="table__item-description">- Пункт 1</span>
+              </label>
+            </li>
+            <li class="table__item">
+              <label>
+                <input class="table__field visually-hidden" type="radio" name="table-item" value="two">
+                <span class="table__item-description">- Пункт 2</span>
+              </label>
+            </li>
+            <li class="table__item">
+              <label>
+                <input class="table__field visually-hidden" type="radio" name="table-item" value="three">
+                <span class="table__item-description">- Пункт 3</span>
+              </label>
+            </li>
+            <li class="table__item">
+              <label>
+                <input class="table__field visually-hidden" type="radio" name="table-item" value="four">
+                <span class="table__item-description">- Пункт 4</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <label class="table__search-container p-2">
+          <input class="table__field form-control w-auto" type="search" name="search" placeholder="Поиск">
+          <span class="visually-hidden">Поиск</span>
+        </label>
+        <form action="http://localhost:8000/post.php"  method="post" class="table__form form ">
+          <fieldset class="form__data data">
+            <ul class="list data__list-title data__container">
+              <li class="data__title data__item data__item--border">ФИО</li>
+              <li class="data__title data__item data__item--border">Должность</li>
+              <li class="data__title data__item data__item--border">Возраст</li>
+              <li class="data__title data__item data__item--border">Компетенция</li>
+            </ul>
+            <ul class="list data__field-list">
+              <li class="data__field-item data__container">
+                <label class="data__item data__item--border">
+                  <input class="form__field" type="text" name="user-name" placeholder="" data-min-length = "2" data-required = "true">
+                  <span class="visually-hidden">ФИО</span>
+                </label>
+                <label class="data__item data__item--border">
+                  <select name="user-profession" class="data__post-list form__field">
+                    <option value="">--Пожалуйста выберете должность--</option>
+                    <option value="analyst">Аналитик</option>
+                    <option value="manager">Менеджер</option>
+                    <option value="developer">Программист</option>
+                    <option value="lawyer">Юрист</option>
+                </select>
+                </label>
+                <label class="data__item data__item--border">
+                  <input class="form__field form__field--age" type="number" name="user-age" placeholder="" data-age = "true" data-required = "true">
+                  <span class="visually-hidden">Возраст</span>
+                </label>
+                <label class="data__item data__item--border">
+                  <textarea class="form__field textbox" name="user-competencies" rows="5" cols="33" data-required = "true"></textarea>
+                </label>
+                <div class="data__item">
+                  <button class="data__btn-remove-item btn btn-outline-dark" type="button">
+                    <span class="visually-hidden">Удалить пункт</span>
+                  </button>
+                </div>
+              </li>
+            </ul>
+            <div class="data__container data__button-wrapper">
+              <div class="data__button-container">
+                <button type="submit" class="btn btn-primary my-2">Отправить</button>
+                <button class="data__btn-add btn btn-secondary my-2" type="button">Добавить</button>
+              </div>              
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </div>    
+  </main>
+  <footer class="page__footer m-3">
+    <div class="container text-center">
+      <a href="#" class="text-decoration-none h2">Подвал</a>
+    </div>    
+  </footer>
+
+  <template id="item">
+    <li class="data__field-item data__container">
+      <label class="data__item data__item--border">
+        <input class="form__field" type="text" name="user-name" placeholder="" data-min-length = "2" data-required = "true">
+        <span class="visually-hidden">ФИО</span>
+      </label>
+      <label class="data__item data__item--border">
+        <select name="user-profession" class="data__post-list form__field">
+          <option value="">--Пожалуйста выберете должность--</option>
+          <option value="analyst">Аналитик</option>
+          <option value="manager">Менеджер</option>
+          <option value="developer">Программист</option>
+          <option value="lawyer">Юрист</option>
+      </select>
+      </label>
+      <label class="data__item data__item--border">
+        <input class="form__field form__field--age" type="number" name="user-age" placeholder="" data-age = "true" data-required = "true">
+        <span class="visually-hidden">Возраст</span>
+      </label>
+      <label class="data__item data__item--border">
+        <textarea class="form__field textbox" name="user-competencies" rows="5" cols="33" data-required = "true"></textarea>
+      </label>
+      <div class="data__item">
+        <button class="data__btn-remove-item btn btn-outline-dark" type="button">
+          <span class="visually-hidden">Удалить пункт</span>
+        </button>
+      </div>
+    </li>
+  </template>
+  <script src="./bootstrap/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
